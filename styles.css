@@ -67,12 +67,10 @@ button {
     }
 }
 
-/* Add custom animation for questions */
 .question-slide {
     animation: slideIn 0.8s ease-out;
 }
 
-/* Add this style to highlight the question number */
 .question-number {
     font-weight: bold;
     font-size: 18px;
