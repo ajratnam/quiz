@@ -1,4 +1,3 @@
-// script.js
 const operators = ["+", "-", "*", "/"];
 const maxOperand = 20;
 
@@ -7,17 +6,17 @@ function generateRandomQuestion() {
     let num1, num2;
 
     if (operator === "+") {
-        num1 = Math.floor(Math.random() * 9) + 2; // 2 to 10 (inclusive)
+        num1 = Math.floor(Math.random() * 9) + 2;
         num2 = Math.floor(Math.random() * 9) + 2;
     } else if (operator === "-") {
-        num1 = Math.floor(Math.random() * 89) + 11; // 11 to 99 (inclusive)
-        num2 = Math.floor(Math.random() * num1) + 1; // Ensure num2 is smaller
+        num1 = Math.floor(Math.random() * 89) + 11;
+        num2 = Math.floor(Math.random() * num1) + 1;
     } else if (operator === "*") {
         num1 = Math.floor(Math.random() * 9) + 2;
         num2 = Math.floor(Math.random() * 9) + 2;
     } else if (operator === "/") {
-        num2 = Math.floor(Math.random() * 8) + 2; // 2 to 9 (inclusive)
-        num1 = num2 * (Math.floor(Math.random() * 9) + 1); // Ensure num1 is multiple of num2
+        num2 = Math.floor(Math.random() * 8) + 2;
+        num1 = num2 * (Math.floor(Math.random() * 9) + 1);
     }
 
     const question = `${num1} ${operator} ${num2}`;
@@ -69,12 +68,12 @@ function checkAnswer() {
             } else {
                 displayQuestion();
             }
-        }, 1000); // Move to next question after 1 second
+        }, 1000);
     } else {
         resultElement.textContent = "Incorrect. Try again.";
         setTimeout(() => {
             resetQuiz();
-        }, 1000); // Reset quiz after 1 second
+        }, 1000);
     }
 }
 
@@ -83,14 +82,13 @@ function displayCongratulations() {
     userAnswerInput.style.display = "none";
     submitButton.style.display = "none";
     resultElement.textContent = "Message me today's wordle on whatsapp ";
-    // You can add more prize-related content or links here
 }
 
 
 
 function resetQuiz() {
     currentQuestionIndex = 0;
-    questions.length = 0; // Clear the existing questions
+    questions.length = 0;
     for (let i = 0; i < 10; i++) {
         questions.push(generateRandomQuestion());
     }
@@ -106,8 +104,8 @@ displayQuestion();
 
 userAnswerInput.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        event.preventDefault(); // Prevent the default "Enter" behavior (e.g., form submission)
-        submitButton.click(); // Simulate a click on the submit button
+        event.preventDefault();
+        submitButton.click();
     }
 });
 
